@@ -17,9 +17,6 @@ func init() {
 }
 
 func main() {
-	// a := []int{1, 2, 3}
-	// b := []int{2, 3, 4}
-	// TestFunction(a, b)
 	gin.SetMode(os.Getenv("GIN_MODE"))
 	routersInit := routers.InitRouter()
 
@@ -29,15 +26,19 @@ func main() {
 	}
 
 	server.ListenAndServe()
+
+	// a := []string{"b", "c", "d"}
+	// b := []string{"a", "c", "d"}
+	// TestFunction(a, b)
 }
 
-func TestFunction(a []int, b []int) (*[]int, *[]int) {
-	visited := make(map[int]bool, 0)
-	var res1 = []int{}
-	var res2 = []int{}
+func TestFunction(a []string, b []string) (*[]string, *[]string) {
+	visited := make(map[string]bool, 0)
+	var res1 = []string{}
+	var res2 = []string{}
 
 	for i := 0; i < len(a); i++ {
-		if visited[a[i]] == true {
+		if visited[a[i]] {
 			res2 = append(res2[:i], res2[i+1:]...)
 		} else {
 			res1 = append(res1, a[i])
@@ -46,7 +47,7 @@ func TestFunction(a []int, b []int) (*[]int, *[]int) {
 		}
 	}
 	for i := 0; i < len(b); i++ {
-		if visited[b[i]] == true {
+		if visited[b[i]] {
 			res2 = append(res2[:i], res2[i+1:]...)
 		} else {
 			res1 = append(res1, b[i])
@@ -56,5 +57,5 @@ func TestFunction(a []int, b []int) (*[]int, *[]int) {
 	}
 
 	fmt.Println(res1, res2)
-	return &a, &b
+	return &res1, &res2
 }
