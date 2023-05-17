@@ -1,0 +1,17 @@
+version: "3.8"
+
+# networks:
+#   maximum_soft:
+#     driver: bridge
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      - POSTGRES_DB=hr
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=maximum_soft
+    ports:
+      - "5432:5432"
+    # networks:
+    #   - maximum_soft

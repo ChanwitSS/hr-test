@@ -1,0 +1,11 @@
+package e
+
+const (
+	SUCCESS = 200
+
+	ERROR_BAD_REQUEST     = 400
+	ERROR_AUTH            = 401
+	ERROR_PERMISSION      = 403
+	ERROR_NOT_FOUND       = 404
+	ERROR_INTERNAL_SERVER = 500
+)
